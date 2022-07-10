@@ -1,5 +1,6 @@
 library(shiny)
 library(shinythemes)
+library(markdown)
 
 fluidPage(theme = shinytheme("united"),
   navbarPage(
