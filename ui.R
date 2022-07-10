@@ -20,6 +20,6 @@ fluidPage(theme = shinytheme("united"),
     "This panel is intentionally left blank"),
     tabPanel("About",
     div(includeMarkdown("about.md"),
-    align="justify")),
+    align = "justify")),
   ),
 )

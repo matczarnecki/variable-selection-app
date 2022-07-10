@@ -1,6 +1,6 @@
-my_packages = c("randomForest", "data.table")
+my_packages <- c("randomForest", "data.table", "shinythemes")
 
-install_if_missing = function(p) {
+install_if_missing <- function(p) {
   if (p %in% rownames(installed.packages()) == FALSE) {
     install.packages(p)
   }
