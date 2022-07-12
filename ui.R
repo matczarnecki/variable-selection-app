@@ -7,11 +7,17 @@ fluidPage(theme = shinytheme("united"),
     "Variable Selection Application:",
     tabPanel("Select file",
       sidebarPanel(
-        textInput("text_in", "Given text:", "Hello world"),
+        fileInput("csv_file", "Choose CSV File",
+          accept = c(
+            "text/csv",
+            "text/comma-separated-values,text/plain",
+            ".csv")
+          ),
+        tags$hr(),
+        checkboxInput("header", "Header", TRUE)
       ),
       mainPanel(
-        tags$label(h3("Output text")),
-        verbatimTextOutput("text_out"),
+        dataTableOutput("contents")
       )
     ),
     tabPanel("Variable selection method",
