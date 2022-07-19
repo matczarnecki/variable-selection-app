@@ -1,6 +1,8 @@
 library(data.table)
 library(randomForest)
 
+source("variable_selection/PCA.R")
+
 data_table_options <- list(
   pageLength = 10,
   scrollX = TRUE
@@ -22,9 +24,11 @@ shinyServer(function(input, output, session) {
     options <- data_table_options
   )
 
-  output$contents_selection <- renderDataTable({
-    data_frame()
-  },
+  observeEvent(input$apply_selection_button, {
+    output$contents_selection <- renderDataTable({
+      perform_variable_selection_pca(data_frame())
+    },
     options <- data_table_options
   )
+  })
 })
